@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>انطباعك عن الجمعية العمومية لمجلس الآباء والمعلمين</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2b6cb0;        /* أزرق هادئ ومريح */
+            --primary-dark: #1e4e8c;   /* أزرق داكن للنصوص والعناوين */
+            --primary-soft: #ebf4ff;   /* خلفية زرقاء ناعمة جداً */
+            --accent: #319795;         /* أخضر مائي هادئ */
+            --bg-page: #f4f7f9;        /* خلفية الصفحة الرمادية المزرقة الفاتحة */
+            --card-bg: #ffffff;        /* خلفية البطاقة */
+            --text-main: #2d3748;      /* لون النص الأساسي */
+            --text-muted: #718096;     /* لون النص الفرعي */
+            --border-color: #cbd5e0;   /* لون الحدود الناعمة */
+            --danger: #e53e3e;         /* لون النجمة الإلزامية */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            line-height: 1.7;
+            padding: 20px 12px 45px;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* ترويسة الصفحة */
+        .header-card {
+            background: var(--card-bg);
+            border-radius: 18px;
+            border-top: 6px solid var(--accent);
+            padding: 28px 22px;
+            margin-bottom: 18px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            text-align: center;
+        }
+
+        .school-badge {
+            display: inline-block;
+            background: var(--primary-soft);
+            color: var(--primary-dark);
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 4px 14px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+        }
+
+        .header-card h1 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+        }
+
+        .date-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: #f0fdf4;
+            color: #276749;
+            border: 1px solid #c6f6d5;
+            padding: 8px 18px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        /* بطاقة النموذج */
+        .form-card {
+            background: var(--card-bg);
+            border-radius: 18px;
+            padding: 26px 24px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e2e8f0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 15px;
+        }
+
+        label {
+            display: block;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        input[type="text"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 11px 14px;
+            border: 1.5px solid var(--border-color);
+            border-radius: 12px;
+            font-size: 0.94rem;
+            color: var(--text-main);
+            background-color: #fcfdfe;
+            transition: all 0.2s ease;
+        }
+
+        input[type="text"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            background-color: #ffffff;
+            box-shadow: 0 0 0 4px rgba(49, 151, 149, 0.12);
+        }
+
+        select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234a5568' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: left 14px center;
+            background-size: 16px;
+            padding-left: 38px;
+        }
+
+        textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: #ffffff;
+            border: none;
+            padding: 14px;
+            font-size: 1.05rem;
+            font-weight: 800;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform 0.15s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+            box-shadow: 0 4px 12px rgba(43, 108, 176, 0.2);
+            margin-top: 6px;
+        }
+
+        .btn-submit:hover:not(:disabled) {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(43, 108, 176, 0.28);
+        }
+
+        .btn-submit:active:not(:disabled) {
+            transform: translateY(0);
+        }
+
+        .btn-submit:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        /* رسالة التأكيد بعد الإرسال */
+        .success-box {
+            display: none;
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 30px 22px;
+            text-align: center;
+            border-top: 6px solid var(--accent);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+            margin-top: 18px;
+        }
+
+        .success-icon {
+            width: 58px;
+            height: 58px;
+            background: #e6fffa;
+            color: var(--accent);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+        }
+
+        .success-box h3 {
+            color: var(--primary-dark);
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+        }
+
+        .success-box p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .btn-reset {
+            margin-top: 18px;
+            background: var(--primary-soft);
+            color: var(--primary-dark);
+            border: none;
+            padding: 9px 20px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        @media (max-width: 600px) {
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            .header-card h1 {
+                font-size: 1.22rem;
+            }
+            .form-card {
+                padding: 20px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- الترويسة -->
+    <div class="header-card">
+        <span class="school-badge">مدرسة عمار بن ياسر الابتدائية</span>
+        <h1>انطباعك عن الجمعية العمومية لمجلس الآباء والمعلمين</h1>
+        <div class="date-pill">
+            <span>📅 يوم الخميس الموافق: 1448/6/8 هـ</span>
+        </div>
+    </div>
+
+    <!-- النموذج -->
+    <div class="form-card" id="formCard">
+        <form id="impressionForm">
+            <div class="form-group">
+                <label for="parentName">اسم ولي الأمر</label>
+                <input type="text" id="parentName" name="parentName" placeholder="أدخل اسم ولي الأمر الكريم (اختياري)">
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="studentName">اسم الطالب</label>
+                    <input type="text" id="studentName" name="studentName" placeholder="أدخل اسم الطالب الثلاثي (اختياري)">
+                </div>
+
+                <div class="form-group">
+                    <label for="grade">الصف</label>
+                    <select id="grade" name="grade">
+                        <option value="" selected>اختر الصف... (اختياري)</option>
+                        <option value="الرابع الابتدائي">الرابع الابتدائي</option>
+                        <option value="الخامس الابتدائي">الخامس الابتدائي</option>
+                        <option value="السادس الابتدائي">السادس الابتدائي</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="impression">انطباعك العام عن الجمعية العمومية</label>
+                <select id="impression" name="impression">
+                    <option value="" selected>-- اختر التقييم المناسب (اختياري) --</option>
+                    <option value="ممتاز">ممتاز</option>
+                    <option value="جيد جداً">جيد جداً</option>
+                    <option value="جيد">جيد</option>
+                    <option value="مقبول">مقبول</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="suggestions">مقترحات تود طرحها لنا</label>
+                <textarea id="suggestions" name="suggestions" placeholder="نسعد بمقترحاتكم وملاحظاتكم التطويرية التي تسهم في الارتقاء بأبنائنا الطلاب..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit" id="submitBtn">إرسال الانطباع والمقترحات</button>
+        </form>
+    </div>
+
+    <!-- رسالة النجاح -->
+    <div class="success-box" id="successBox">
+        <div class="success-icon">✓</div>
+        <h3>شكراً لمشاركتكم وتفاعلكم</h3>
+        <p id="summaryText"></p>
+        <p style="margin-top: 6px; font-size: 0.88rem;">نعتز بشراكتكم الفاعلة مع المدرسة لما فيه مصلحة أبنائنا الطلاب.</p>
+        <button type="button" class="btn-reset" onclick="resetForm()">إرسال رد آخر</button>
+    </div>
+
+    <footer>
+        إعداد وبرمجة: أ. صلاح سعد الرحيمان
+    </footer>
+</div>
+
+<script>
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwu6YlGxNuKoURfsZMG1JTskGLEUM3aibHmi_YLhgD823M0jlSRCXWV6cvKNDXssht0fw/exec';
+
+    document.getElementById('impressionForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const submitBtn = document.getElementById('submitBtn');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'جاري الإرسال وحفظ البيانات...';
+
+        const parentName = document.getElementById('parentName').value.trim();
+        const studentName = document.getElementById('studentName').value.trim();
+        const grade = document.getElementById('grade').value;
+        const impression = document.getElementById('impression').value;
+        const suggestions = document.getElementById('suggestions').value.trim();
+
+        const formData = new URLSearchParams();
+        formData.append('parentName', parentName || 'غير محدد');
+        formData.append('studentName', studentName || 'غير محدد');
+        formData.append('grade', grade || 'غير محدد');
+        formData.append('impression', impression || 'غير محدد');
+        formData.append('suggestions', suggestions || 'لا يوجد');
+
+        fetch(SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: formData
+        })
+        .then(() => {
+            showSuccessMessage(parentName, studentName, grade, impression);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('حدث خطأ أثناء الاتصال بالخادم، يرجى المحاولة مرة أخرى.');
+        })
+        .finally(() => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'إرسال الانطباع والمقترحات';
+        });
+    });
+
+    function showSuccessMessage(parentName, studentName, grade, impression) {
+        let parts = [];
+        if (parentName) parts.push(`ولي الأمر: <strong>${parentName}</strong>`);
+        if (studentName || grade) {
+            const studentInfo = [studentName, grade].filter(Boolean).join(' - ');
+            parts.push(`الطالب: <strong>${studentInfo}</strong>`);
+        }
+        if (impression) parts.push(`التقييم العام: <strong>${impression}</strong>`);
+
+        const summaryHtml = parts.length > 0 
+            ? `تم حفظ مشاركتكم بنجاح (${parts.join(' | ')}).`
+            : `تم استلام وحفظ مشاركتكم ومقترحاتكم بنجاح.`;
+
+        document.getElementById('summaryText').innerHTML = summaryHtml;
+        document.getElementById('formCard').style.display = 'none';
+        document.getElementById('successBox').style.display = 'block';
+    }
+
+    function resetForm() {
+        document.getElementById('impressionForm').reset();
+        document.getElementById('successBox').style.display = 'none';
+        document.getElementById('formCard').style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
